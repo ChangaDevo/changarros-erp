@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:/xampp/php/php.exe\" artisan:*)",
+      "Bash(where composer:*)",
+      "Bash(composer install:*)",
+      "Bash(C:/xampp/php/php.exe -r ':*)",
+      "Bash(php artisan:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(grep -L 'protected $table' 'C:/xampp/htdocs/changarrO/app/Models/*.php')",
+      "Bash(xargs -I{} basename {})",
+      "Bash(php -l app/Models/Cotizacion.php)",
+      "Bash(php -l app/Models/CotizacionItem.php)",
+      "Bash(php -l app/Http/Controllers/Admin/CotizacionController.php)",
+      "Bash(php -l app/Http/Controllers/Public/CotizacionPublicaController.php)",
+      "Bash(ls app/Models/Cotizacion*.php)",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}
