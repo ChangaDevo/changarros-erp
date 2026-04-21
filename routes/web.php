@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Portal;
 
-// Root redirect
-Route::get('/', fn() => redirect()->route('admin.login'));
+// Landing pública
+Route::get('/', fn() => view('landing.index'))->name('landing');
 
 // ===== MARCA PÚBLICA (sin auth) =====
 Route::get('/marca/{token}', [\App\Http\Controllers\MarcaPublicaController::class, 'show'])->name('marca.publica');
