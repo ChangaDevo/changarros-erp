@@ -88,7 +88,7 @@
 
     <div class="footer">
       Enviado por <strong>{{ $factura->creadoPor->name ?? config('app.name') }}</strong>
-      vía ESPIRAL ERP · espiraljrz.com
+      vía CHANGARROS · changarros.com
     </div>
 
   </div>

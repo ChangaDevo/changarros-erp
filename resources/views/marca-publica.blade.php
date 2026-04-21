@@ -361,7 +361,7 @@
         @endif
       </p>
       <p class="mb-0 mt-1 opacity-50" style="font-size:.7rem;">
-        Generado con ESPIRAL ERP · espiraljrz.com
+        Generado con CHANGARROS · changarros.com
       </p>
     </div>
   </footer>

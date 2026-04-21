@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="ESPIRAL ERP - Portal de Cliente">
+  <meta name="description" content="CHANGARROS - Portal de Cliente">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="_token" content="{{ csrf_token() }}">
 
-  <title>@yield('title', 'Portal') - ESPIRAL ERP</title>
+  <title>@yield('title', 'Portal') - CHANGARROS</title>
 
   @vite(['resources/js/pages/color-modes.js'])
   <script>
@@ -46,7 +46,7 @@
     <nav class="sidebar">
       <div class="sidebar-header">
         <a href="{{ route('portal.dashboard') }}" class="sidebar-brand">
-          ESPIRAL<span>ERP</span>
+          CHANGARROS
         </a>
         <div class="sidebar-toggler not-active">
           <span></span>
@@ -231,7 +231,7 @@
 
       <!-- Footer -->
       <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
-        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">ESPIRAL ERP</a>.</p>
+        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">CHANGARROS</a>.</p>
         <p class="text-muted">Portal de Clientes</p>
       </footer>
       <!-- End Footer -->

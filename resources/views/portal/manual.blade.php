@@ -133,7 +133,7 @@
             <p class="text-muted small mb-0">¿Qué puedes hacer aquí?</p>
           </div>
         </div>
-        <p>Este es tu espacio de trabajo con <strong>Espiral Estudio Creativo</strong>. Desde aquí puedes seguir el avance de tus proyectos, aprobar o pedir cambios en entregas, firmar documentos digitalmente, ver el calendario de contenido para redes sociales y consultar el estado de tus pagos.</p>
+        <p>Este es tu espacio de trabajo con <strong>CHANGARROS</strong>. Desde aquí puedes seguir el avance de tus proyectos, aprobar o pedir cambios en entregas, firmar documentos digitalmente, ver el calendario de contenido para redes sociales y consultar el estado de tus pagos.</p>
         <div class="row g-3 mt-1">
           <div class="col-sm-6 col-md-4">
             <div class="d-flex align-items-center gap-2 p-3 rounded border">
@@ -560,7 +560,7 @@
 
         <div class="warn-box">
           <i data-lucide="alert-triangle" style="width:14px;height:14px;" class="me-1 text-warning"></i>
-          <strong>Recuerda:</strong> Este portal es solo de consulta de pagos. Para realizar un pago o subir un comprobante, contacta directamente al equipo de Espiral.
+          <strong>Recuerda:</strong> Este portal es solo de consulta de pagos. Para realizar un pago o subir un comprobante, contacta directamente al equipo de CHANGARROS.
         </div>
       </div>
     </div>
@@ -586,7 +586,7 @@
         </div>
 
         <h6 class="fw-bold mb-3">¿Olvidaste tu contraseña?</h6>
-        <p class="small text-muted mb-3">Si no puedes acceder al portal, contacta al equipo de Espiral y ellos te asignarán una nueva contraseña.</p>
+        <p class="small text-muted mb-3">Si no puedes acceder al portal, contacta al equipo de CHANGARROS y ellos te asignarán una nueva contraseña.</p>
 
         <h6 class="fw-bold mb-3">Modo oscuro / claro</h6>
         <p class="small text-muted mb-0">En la barra superior verás un interruptor de tema. Puedes cambiar entre modo claro y oscuro según tu preferencia. La preferencia se guarda en tu navegador.</p>
@@ -604,7 +604,7 @@
         <i data-lucide="headphones" class="text-primary" style="width:36px;height:36px;min-width:36px;"></i>
         <div>
           <h6 class="fw-bold mb-1">¿Necesitas ayuda?</h6>
-          <p class="text-muted small mb-0">Si tienes dudas sobre el portal o sobre tu proyecto, contacta directamente a tu ejecutivo de cuenta en Espiral Estudio Creativo.</p>
+          <p class="text-muted small mb-0">Si tienes dudas sobre el portal o sobre tu proyecto, contacta directamente a tu ejecutivo de cuenta en CHANGARROS.</p>
         </div>
       </div>
     </div>

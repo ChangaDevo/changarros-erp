@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Cotización: {{ $cotizacion->nombre }} — ESPIRAL ERP</title>
+  <title>Cotización: {{ $cotizacion->nombre }} — CHANGARROS</title>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -224,7 +224,7 @@
 <!-- ─── HEADER ─── -->
 <div class="cot-header">
   <div class="cot-header-inner">
-    <a class="brand-logo" href="#">ESPIRAL<span>ERP</span></a>
+    <a class="brand-logo" href="#">CHANGARROS</a>
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
       <div>
         <h1 class="cot-title">{{ $cotizacion->nombre }}</h1>
@@ -283,7 +283,7 @@
     <p class="mt-1 mb-0" style="color:#166534;font-size:.9rem;">
       Aprobada el {{ $cotizacion->aprobado_at->format('d/m/Y') }} a las {{ $cotizacion->aprobado_at->format('H:i') }}
       @if($cotizacion->aprobado_nombre) por <strong>{{ $cotizacion->aprobado_nombre }}</strong>@endif.
-      El equipo de ESPIRAL ERP se pondrá en contacto pronto.
+      El equipo de CHANGARROS se pondrá en contacto pronto.
     </p>
   </div>
   @elseif($cotizacion->estado === 'rechazada')
@@ -450,8 +450,8 @@
 
 <!-- ─── FOOTER ─── -->
 <div class="cot-footer">
-  <p>Preparado por <strong>ESPIRAL ERP</strong> · Cotización generada el {{ $cotizacion->created_at->format('d M Y') }}</p>
-  <p>¿Preguntas? Contáctanos · <a href="mailto:hola@espiraljrz.com">hola@espiraljrz.com</a></p>
+  <p>Preparado por <strong>CHANGARROS</strong> · Cotización generada el {{ $cotizacion->created_at->format('d M Y') }}</p>
+  <p>¿Preguntas? Contáctanos · <a href="mailto:hola@changarros.com">hola@changarros.com</a></p>
 </div>
 
 <!-- ─── APPROVE MODAL ─── -->
@@ -460,7 +460,7 @@
     <button class="modal-close" onclick="closeModals()">×</button>
     <div class="modal-title" style="color:#15803d;">Aprobar Cotización</div>
     <p style="color:#6b7280;font-size:.9rem;margin-bottom:1.25rem;">
-      Al aprobar, autorizas a ESPIRAL ERP a iniciar los trabajos descritos en esta cotización por un total de
+      Al aprobar, autorizas a CHANGARROS a iniciar los trabajos descritos en esta cotización por un total de
       <strong>${{ number_format($cotizacion->total, 2) }}</strong>.
     </p>
     <form method="POST" action="{{ route('cotizacion.aprobar', $cotizacion->token) }}">

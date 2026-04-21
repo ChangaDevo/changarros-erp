@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Portal de Cliente - ESPIRAL ERP</title>
+  <title>Portal de Cliente - CHANGARROS</title>
 
   @vite(['resources/js/pages/color-modes.js'])
   <script>
@@ -45,13 +45,13 @@
                     <div class="text-center text-white">
                       <i data-lucide="briefcase" style="width:48px;height:48px;opacity:0.9;" class="mb-3"></i>
                       <h4 class="fw-bold mb-2">Portal de Clientes</h4>
-                      <p class="small opacity-75">ESPIRAL ERP</p>
+                      <p class="small opacity-75">CHANGARROS</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-8 ps-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="nobleui-logo d-block mb-2">ESPIRAL<span>ERP</span></a>
+                    <a href="#" class="nobleui-logo d-block mb-2">CHANGARROS</a>
                     <h5 class="text-secondary fw-normal mb-4">Accede a tu portal de cliente</h5>
 
                     @if($errors->any())

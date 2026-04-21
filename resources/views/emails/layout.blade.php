@@ -30,13 +30,13 @@
 <body>
 <div class="wrapper">
   <div class="header">
-    <a href="{{ config('app.url') }}" class="header-logo">espiral<span>ERP</span></a>
+    <a href="{{ config('app.url') }}" class="header-logo">CHANGARROS</a>
   </div>
   <div class="body">
     @yield('content')
   </div>
   <div class="footer">
-    <p>Este correo fue enviado automáticamente por espiralERP.<br>Por favor no responder a este mensaje.</p>
+    <p>Este correo fue enviado automáticamente por CHANGARROS.<br>Por favor no responder a este mensaje.</p>
   </div>
 </div>
 </body>

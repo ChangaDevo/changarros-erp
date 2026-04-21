@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Iniciar Sesión - ESPIRAL ERP Admin</title>
+  <title>Iniciar Sesión - CHANGARROS Admin</title>
 
   @vite(['resources/js/pages/color-modes.js'])
   <script>
@@ -43,14 +43,14 @@
                   <div class="auth-side-wrapper d-flex flex-column align-items-center justify-content-center p-4"
                     style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
                     <div class="text-center text-white">
-                      <h3 class="fw-bold mb-2">ESPIRAL<br><span style="opacity:0.8">ERP</span></h3>
+                      <h3 class="fw-bold mb-2">CHANGARROS</h3>
                       <p class="small opacity-75">Estudio Creativo</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-8 ps-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="nobleui-logo d-block mb-2">ESPIRAL<span>ERP</span></a>
+                    <a href="#" class="nobleui-logo d-block mb-2">CHANGARROS</a>
                     <h5 class="text-secondary fw-normal mb-4">Panel de Administración</h5>
 
                     @if($errors->any())
@@ -67,7 +67,7 @@
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror"
                           id="email" name="email" value="{{ old('email') }}"
-                          placeholder="admin@espiraljrz.com" required autofocus>
+                          placeholder="admin@changarros.com" required autofocus>
                         @error('email')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

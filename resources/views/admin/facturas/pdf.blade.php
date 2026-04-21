@@ -196,7 +196,7 @@
   {{-- ── Footer ── --}}
   <div class="footer">
     <div class="footer-text">
-      Documento generado el {{ now()->format('d/m/Y H:i') }} · ESPIRAL ERP · espiraljrz.com
+      Documento generado el {{ now()->format('d/m/Y H:i') }} · CHANGARROS · changarros.com
     </div>
   </div>
 

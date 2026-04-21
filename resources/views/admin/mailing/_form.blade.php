@@ -47,7 +47,7 @@
             <label class="form-label small fw-semibold">Nombre del remitente <span class="text-danger">*</span></label>
             <input type="text" name="remitente_nombre" value="{{ old('remitente_nombre', $campana->remitente_nombre ?? '') }}"
                    class="form-control @error('remitente_nombre') is-invalid @enderror"
-                   placeholder="Ej. Comunicación Espiral">
+                   placeholder="Ej. Comunicación CHANGARROS">
             @error('remitente_nombre') <div class="invalid-feedback">{{ $message }}</div> @enderror
           </div>
           <div class="col-md-6">
@@ -319,7 +319,7 @@ function cargarEjemplo() {
 <body>
   <div class="container">
     <div class="header">
-      <h1>ESPIRAL ERP</h1>
+      <h1>CHANGARROS</h1>
     </div>
     <div class="body">
       <h2>Hola, {nombre}! 👋</h2>
@@ -328,7 +328,7 @@ function cargarEjemplo() {
       <a href="#" class="cta">Ver más detalles</a>
     </div>
     <div class="footer">
-      Este correo fue enviado a {email}. © {{ date('Y') }} ESPIRAL ERP
+      Este correo fue enviado a {email}. © {{ date('Y') }} CHANGARROS
     </div>
   </div>
 </body>

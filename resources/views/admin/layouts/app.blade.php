@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="ESPIRAL ERP - Panel de Administración">
+  <meta name="description" content="CHANGARROS - Panel de Administración">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="_token" content="{{ csrf_token() }}">
 
-  <title>@yield('title', 'Dashboard') - ESPIRAL ERP</title>
+  <title>@yield('title', 'Dashboard') - CHANGARROS</title>
 
   <!-- color-modes:js -->
   @vite(['resources/js/pages/color-modes.js'])
@@ -58,7 +58,7 @@
     <nav class="sidebar">
       <div class="sidebar-header">
         <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
-          Espiral<span>ERP</span>
+          CHANGARROS
         </a>
         <div class="sidebar-toggler not-active">
           <span></span>
@@ -342,8 +342,8 @@
 
       <!-- Footer -->
       <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
-        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">ESPIRAL ERP</a>.</p>
-        <p class="text-muted">ESPIRAL ERP v1.0</p>
+        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">CHANGARROS</a>.</p>
+        <p class="text-muted">CHANGARROS v1.0</p>
       </footer>
       <!-- End Footer -->
     </div>
