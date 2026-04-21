@@ -112,7 +112,7 @@
         <ul class="list-unstyled">
           <li class="mb-2"><i data-lucide="building-2" style="width:14px;height:14px;" class="me-2 text-primary"></i><strong>Transferencia bancaria</strong> - Contacta al estudio para obtener los datos bancarios.</li>
           <li class="mb-2"><i data-lucide="smartphone" style="width:14px;height:14px;" class="me-2 text-success"></i><strong>CoDi</strong> - Si tienes referencia CoDi, úsala en tu aplicación bancaria.</li>
-          <li class="mb-2"><i data-lucide="mail" style="width:14px;height:14px;" class="me-2 text-info"></i><strong>Contacto</strong> - Escríbenos a <a href="mailto:pagos@changarrito.com">pagos@changarrito.com</a></li>
+          <li class="mb-2"><i data-lucide="mail" style="width:14px;height:14px;" class="me-2 text-info"></i><strong>Contacto</strong> - Escríbenos a <a href="mailto:pagos@espiraljrz.com">pagos@espiraljrz.com</a></li>
         </ul>
         <p class="text-muted small mb-0">Una vez que realices el pago, notifícanos con el comprobante para actualizar tu cuenta.</p>
       </div>

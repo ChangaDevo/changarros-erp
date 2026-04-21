@@ -68,6 +68,27 @@
               @error('monto_total')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-4">
+              <label for="horas_estimadas" class="form-label">
+                Horas estimadas
+                <i data-lucide="info" style="width:12px;height:12px;" class="ms-1 text-muted" title="Presupuesto de horas para rentabilidad"></i>
+              </label>
+              <input type="number" class="form-control @error('horas_estimadas') is-invalid @enderror"
+                id="horas_estimadas" name="horas_estimadas" value="{{ old('horas_estimadas') }}" step="0.5" min="0" placeholder="ej. 40">
+              @error('horas_estimadas')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+            <div class="col-md-4">
+              <label for="tarifa_hora" class="form-label">
+                Tarifa / hora ($)
+                <i data-lucide="info" style="width:12px;height:12px;" class="ms-1 text-muted" title="Lo que cobras por hora a este cliente"></i>
+              </label>
+              <input type="number" class="form-control @error('tarifa_hora') is-invalid @enderror"
+                id="tarifa_hora" name="tarifa_hora" value="{{ old('tarifa_hora') }}" step="0.01" min="0" placeholder="ej. 500">
+              @error('tarifa_hora')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4" style="display:none;">{{-- placeholder para mantener grid --}}</div>
+            <div class="col-md-4">
               <label for="fecha_inicio" class="form-label">Fecha de Inicio</label>
               <input type="date" class="form-control @error('fecha_inicio') is-invalid @enderror"
                 id="fecha_inicio" name="fecha_inicio" value="{{ old('fecha_inicio') }}">

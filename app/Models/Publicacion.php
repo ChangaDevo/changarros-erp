@@ -3,9 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\BelongsToTenant;
 
 class Publicacion extends Model
 {
+    use BelongsToTenant;
+
+    /** Columna de ownership en esta tabla */
+    public string $tenantColumn = 'created_by';
+
     protected $table = 'publicaciones';
 
     protected $fillable = [

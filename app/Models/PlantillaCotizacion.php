@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\BelongsToTenant;
 
 class PlantillaCotizacion extends Model
 {
+    use BelongsToTenant;
     protected $table = 'plantillas_cotizacion';
 
     protected $fillable = [

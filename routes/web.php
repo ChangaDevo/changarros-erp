@@ -7,6 +7,10 @@ use App\Http\Controllers\Portal;
 // Root redirect
 Route::get('/', fn() => redirect()->route('admin.login'));
 
+// ===== MARCA PÚBLICA (sin auth) =====
+Route::get('/marca/{token}', [\App\Http\Controllers\MarcaPublicaController::class, 'show'])->name('marca.publica');
+Route::get('/marca/{token}/recurso/{recurso}/download', [\App\Http\Controllers\MarcaPublicaController::class, 'descargar'])->name('marca.publica.download');
+
 // ===== ADMIN ROUTES =====
 Route::prefix('admin')->name('admin.')->group(function () {
     // Auth (guest)
@@ -103,6 +107,27 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/notificaciones/{notificacion}/leer', [Admin\NotificacionController::class, 'markRead'])->name('notificaciones.leer');
         Route::post('/notificaciones/leer-todas', [Admin\NotificacionController::class, 'markAllRead'])->name('notificaciones.leer-todas');
 
+        // Marcas / Branding
+        Route::resource('marcas', Admin\MarcaController::class)->parameters(['marcas' => 'marca']);
+        Route::post('/marcas/{marca}/toggle-acceso', [Admin\MarcaController::class, 'toggleAcceso'])->name('marcas.toggle-acceso');
+        Route::post('/marcas/{marca}/recursos', [Admin\MarcaController::class, 'subirRecurso'])->name('marcas.recursos.store');
+        Route::delete('/marcas/{marca}/recursos/{recurso}', [Admin\MarcaController::class, 'eliminarRecurso'])->name('marcas.recursos.destroy');
+        Route::get('/marcas/{marca}/recursos/{recurso}/download', [Admin\MarcaController::class, 'descargarRecurso'])->name('marcas.recursos.download');
+        Route::get('/marcas/{marca}/exportar-zip', [Admin\MarcaController::class, 'exportarZip'])->name('marcas.exportar-zip');
+
+        // Mailing
+        Route::resource('mailing', Admin\CampanaEmailController::class)->parameters(['mailing' => 'mailing']);
+        Route::post('/mailing/{mailing}/enviar', [Admin\CampanaEmailController::class, 'enviar'])->name('mailing.enviar');
+        Route::get('/mailing/{mailing}/preview', [Admin\CampanaEmailController::class, 'preview'])->name('mailing.preview');
+        Route::post('/mailing/preview-live', [Admin\CampanaEmailController::class, 'previewLive'])->name('mailing.preview-live');
+
+        // Perfil del usuario autenticado
+        Route::get('/perfil', [Admin\ProfileController::class, 'show'])->name('perfil.show');
+        Route::get('/perfil/editar', [Admin\ProfileController::class, 'edit'])->name('perfil.edit');
+        Route::put('/perfil', [Admin\ProfileController::class, 'update'])->name('perfil.update');
+        Route::put('/perfil/password', [Admin\ProfileController::class, 'updatePassword'])->name('perfil.password');
+        Route::delete('/perfil/foto', [Admin\ProfileController::class, 'destroyFoto'])->name('perfil.foto.destroy');
+
         // Gestión de usuarios (solo superadmin)
         Route::middleware('superadmin')->group(function () {
             Route::resource('usuarios', Admin\UserController::class)->parameters(['usuarios' => 'usuario']);
@@ -111,6 +136,24 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Compartir proyectos entre usuarios
         Route::post('/proyectos/{proyecto}/compartir', [Admin\ProyectoController::class, 'compartirUsuario'])->name('proyectos.compartir-usuario');
         Route::delete('/proyectos/{proyecto}/usuarios/{usuario}', [Admin\ProyectoController::class, 'quitarUsuario'])->name('proyectos.quitar-usuario');
+
+        // Tiempo
+        Route::get('/tiempo', [Admin\TiempoController::class, 'index'])->name('tiempo.index');
+        Route::post('/tiempo', [Admin\TiempoController::class, 'store'])->name('tiempo.store');
+        Route::delete('/tiempo/{registro}', [Admin\TiempoController::class, 'destroy'])->name('tiempo.destroy');
+        Route::post('/tiempo/timer/iniciar', [Admin\TiempoController::class, 'iniciarTimer'])->name('tiempo.timer.iniciar');
+        Route::post('/tiempo/timer/detener', [Admin\TiempoController::class, 'detenerTimer'])->name('tiempo.timer.detener');
+
+        // Rentabilidad
+        Route::get('/rentabilidad', [Admin\RentabilidadController::class, 'index'])->name('rentabilidad.index');
+
+        // Facturas & Recibos
+        Route::resource('facturas', Admin\FacturaController::class)->parameters(['facturas' => 'factura']);
+        Route::post('/facturas/{factura}/enviar',       [Admin\FacturaController::class, 'enviar'])->name('facturas.enviar');
+        Route::post('/facturas/{factura}/marcar-pagada',[Admin\FacturaController::class, 'marcarPagada'])->name('facturas.marcar-pagada');
+        Route::post('/facturas/{factura}/cancelar',     [Admin\FacturaController::class, 'cancelar'])->name('facturas.cancelar');
+        Route::post('/facturas/{factura}/duplicar',     [Admin\FacturaController::class, 'duplicar'])->name('facturas.duplicar');
+        Route::get('/facturas/{factura}/pdf',           [Admin\FacturaController::class, 'pdf'])->name('facturas.pdf');
     });
 });
 

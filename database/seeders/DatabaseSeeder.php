@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // Create superadmin user
         User::create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@espiral.com',
-            'password' => Hash::make('superadmin123'),
-            'role' => 'superadmin',
+            'name'   => 'Comunicación Participa Juárez',
+            'email'  => 'comunicacion@espiraljuarez.com',
+            'password' => Hash::make('#Espiral1504'),
+            'role'   => 'superadmin',
             'activo' => true,
         ]);
 

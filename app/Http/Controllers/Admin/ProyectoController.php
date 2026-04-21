@@ -33,14 +33,16 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'cliente_id' => 'required|exists:clientes,id',
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'nullable|string',
-            'estado' => 'required|in:cotizando,en_desarrollo,en_revision,aprobado,finalizado',
-            'monto_total' => 'nullable|numeric|min:0',
-            'fecha_inicio' => 'nullable|date',
+            'cliente_id'             => 'required|exists:clientes,id',
+            'nombre'                 => 'required|string|max:255',
+            'descripcion'            => 'nullable|string',
+            'estado'                 => 'required|in:cotizando,en_desarrollo,en_revision,aprobado,finalizado',
+            'monto_total'            => 'nullable|numeric|min:0',
+            'horas_estimadas'        => 'nullable|numeric|min:0',
+            'tarifa_hora'            => 'nullable|numeric|min:0',
+            'fecha_inicio'           => 'nullable|date',
             'fecha_entrega_estimada' => 'nullable|date',
-            'notas' => 'nullable|string',
+            'notas'                  => 'nullable|string',
         ]);
 
         $validated['creado_por'] = auth()->id();
@@ -110,16 +112,18 @@ class ProyectoController extends Controller
     public function update(Request $request, Proyecto $proyecto)
     {
         $validated = $request->validate([
-            'cliente_id' => 'required|exists:clientes,id',
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'nullable|string',
-            'estado' => 'required|in:cotizando,en_desarrollo,en_revision,aprobado,finalizado',
-            'monto_total' => 'nullable|numeric|min:0',
-            'fecha_inicio' => 'nullable|date',
+            'cliente_id'             => 'required|exists:clientes,id',
+            'nombre'                 => 'required|string|max:255',
+            'descripcion'            => 'nullable|string',
+            'estado'                 => 'required|in:cotizando,en_desarrollo,en_revision,aprobado,finalizado',
+            'monto_total'            => 'nullable|numeric|min:0',
+            'horas_estimadas'        => 'nullable|numeric|min:0',
+            'tarifa_hora'            => 'nullable|numeric|min:0',
+            'fecha_inicio'           => 'nullable|date',
             'fecha_entrega_estimada' => 'nullable|date',
-            'fecha_entrega_real' => 'nullable|date',
-            'notas' => 'nullable|string',
-            'carpeta_drive' => 'nullable|url|max:500',
+            'fecha_entrega_real'     => 'nullable|date',
+            'notas'                  => 'nullable|string',
+            'carpeta_drive'          => 'nullable|url|max:500',
         ]);
 
         $proyecto->update($validated);

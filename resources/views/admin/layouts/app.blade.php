@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Changarrito OS - Panel de Administración">
+  <meta name="description" content="ESPIRAL ERP - Panel de Administración">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="_token" content="{{ csrf_token() }}">
 
-  <title>@yield('title', 'Dashboard') - Changarrito OS</title>
+  <title>@yield('title', 'Dashboard') - ESPIRAL ERP</title>
 
   <!-- color-modes:js -->
   @vite(['resources/js/pages/color-modes.js'])
@@ -76,6 +76,7 @@
             </a>
           </li>
 
+          {{-- ══ Gestión ══ --}}
           <li class="nav-item nav-category">Gestión</li>
           <li class="nav-item {{ request()->routeIs('admin.clientes.*') ? 'active' : '' }}">
             <a href="{{ route('admin.clientes.index') }}" class="nav-link">
@@ -89,6 +90,9 @@
               <span class="link-title">Proyectos</span>
             </a>
           </li>
+
+          {{-- ══ Finanzas ══ --}}
+          <li class="nav-item nav-category">Finanzas</li>
           <li class="nav-item {{ request()->routeIs('admin.pagos.*') ? 'active' : '' }}">
             <a href="{{ route('admin.pagos.index') }}" class="nav-link">
               <i class="link-icon" data-lucide="credit-card"></i>
@@ -107,7 +111,44 @@
               <span class="link-title">Plantillas</span>
             </a>
           </li>
+          <li class="nav-item {{ request()->routeIs('admin.facturas.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.facturas.index') }}" class="nav-link">
+              <i class="link-icon" data-lucide="file-text"></i>
+              <span class="link-title">Facturas & Recibos</span>
+            </a>
+          </li>
 
+          {{-- ══ Marketing ══ --}}
+          <li class="nav-item nav-category">Marketing</li>
+          <li class="nav-item {{ request()->routeIs('admin.mailing.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.mailing.index') }}" class="nav-link">
+              <i class="link-icon" data-lucide="send"></i>
+              <span class="link-title">Mailing</span>
+            </a>
+          </li>
+          <li class="nav-item {{ request()->routeIs('admin.marcas.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.marcas.index') }}" class="nav-link">
+              <i class="link-icon" data-lucide="layers"></i>
+              <span class="link-title">Marcas</span>
+            </a>
+          </li>
+
+          {{-- ══ Productividad ══ --}}
+          <li class="nav-item nav-category">Productividad</li>
+          <li class="nav-item {{ request()->routeIs('admin.tiempo.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.tiempo.index') }}" class="nav-link">
+              <i class="link-icon" data-lucide="clock"></i>
+              <span class="link-title">Tiempo</span>
+            </a>
+          </li>
+          <li class="nav-item {{ request()->routeIs('admin.rentabilidad.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.rentabilidad.index') }}" class="nav-link">
+              <i class="link-icon" data-lucide="trending-up"></i>
+              <span class="link-title">Rentabilidad</span>
+            </a>
+          </li>
+
+          {{-- ══ Social Media ══ --}}
           <li class="nav-item nav-category">Social Media</li>
           <li class="nav-item {{ request()->routeIs('admin.publicaciones.*') ? 'active' : '' }}">
             <a href="{{ route('admin.publicaciones.index') }}" class="nav-link">
@@ -192,17 +233,39 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="w-30px h-30px ms-1 rounded-circle" src="https://placehold.co/30x30" alt="profile">
+              <a class="nav-link dropdown-toggle p-0 ms-2" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @if(auth()->user()->foto_url)
+                  <img class="rounded-circle border" src="{{ auth()->user()->foto_url }}"
+                       alt="{{ auth()->user()->name }}"
+                       style="width:34px;height:34px;object-fit:cover;">
+                @else
+                  <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center fw-bold"
+                       style="width:34px;height:34px;font-size:.8rem;">
+                    {{ auth()->user()->iniciales }}
+                  </div>
+                @endif
               </a>
-              <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
-                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+              <div class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="profileDropdown" style="min-width:220px;">
+                <div class="d-flex flex-column align-items-center border-bottom px-4 py-3">
                   <div class="mb-2">
-                    <img class="w-60px h-60px rounded-circle" src="https://placehold.co/60x60" alt="">
+                    @if(auth()->user()->foto_url)
+                      <img class="rounded-circle border" src="{{ auth()->user()->foto_url }}"
+                           alt="{{ auth()->user()->name }}"
+                           style="width:60px;height:60px;object-fit:cover;">
+                    @else
+                      <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center fw-bold"
+                           style="width:60px;height:60px;font-size:1.4rem;">
+                        {{ auth()->user()->iniciales }}
+                      </div>
+                    @endif
                   </div>
                   <div class="text-center">
-                    <p class="fs-16px fw-bolder">{{ auth()->user()->name }}</p>
-                    <p class="fs-12px text-secondary">{{ auth()->user()->email }}</p>
+                    <p class="fs-16px fw-bolder mb-0">{{ auth()->user()->name }}</p>
+                    @if(auth()->user()->cargo)
+                      <p class="fs-11px text-muted mb-1">{{ auth()->user()->cargo }}</p>
+                    @else
+                      <p class="fs-12px text-secondary mb-1">{{ auth()->user()->email }}</p>
+                    @endif
                     @if(auth()->user()->isSuperAdmin())
                       <span class="badge" style="background:#6f42c1;">Super Admin</span>
                     @else
@@ -210,11 +273,24 @@
                     @endif
                   </div>
                 </div>
-                <ul class="list-unstyled p-1">
+                <ul class="list-unstyled p-1 mb-0">
+                  <li>
+                    <a href="{{ route('admin.perfil.show') }}" class="dropdown-item py-2 d-flex align-items-center">
+                      <i class="me-2 icon-md" data-lucide="user"></i>
+                      <span>Mi Perfil</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ route('admin.perfil.edit') }}" class="dropdown-item py-2 d-flex align-items-center">
+                      <i class="me-2 icon-md" data-lucide="settings"></i>
+                      <span>Editar Perfil</span>
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider my-1"></li>
                   <li>
                     <form method="POST" action="{{ route('admin.logout') }}">
                       @csrf
-                      <button type="submit" class="dropdown-item py-2 text-body ms-0 w-100 text-start">
+                      <button type="submit" class="dropdown-item py-2 text-danger ms-0 w-100 text-start d-flex align-items-center">
                         <i class="me-2 icon-md" data-lucide="log-out"></i>
                         <span>Cerrar Sesión</span>
                       </button>
@@ -266,8 +342,8 @@
 
       <!-- Footer -->
       <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
-        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">Changarrito Estudio Creativo</a>.</p>
-        <p class="text-muted">Changarrito OS v1.0</p>
+        <p class="text-muted mb-2 mb-md-0">Copyright &copy; {{ date('Y') }} <a href="#" target="_blank">ESPIRAL ERP</a>.</p>
+        <p class="text-muted">ESPIRAL ERP v1.0</p>
       </footer>
       <!-- End Footer -->
     </div>

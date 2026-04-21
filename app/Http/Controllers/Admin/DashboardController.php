@@ -15,12 +15,15 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // IDs de proyectos del tenant actual (respeta el scope automáticamente)
+        $proyectoIds = Proyecto::pluck('id');
+
         // ---- Stats ----
         $stats = [
             'clientes_activos'       => Cliente::where('activo', true)->count(),
             'proyectos_activos'      => Proyecto::whereNotIn('estado', ['finalizado', 'cancelado'])->count(),
-            'pagos_pendientes'       => Pago::where('estado', 'pendiente')->count(),
-            'entregas_por_aprobar'   => Entrega::where('estado', 'enviado')->count(),
+            'pagos_pendientes'       => Pago::whereIn('proyecto_id', $proyectoIds)->where('estado', 'pendiente')->count(),
+            'entregas_por_aprobar'   => Entrega::whereIn('proyecto_id', $proyectoIds)->where('estado', 'enviado')->count(),
             'cotizaciones_en_espera' => Cotizacion::whereIn('estado', ['enviada', 'vista'])->count(),
             'posts_por_aprobar'      => Publicacion::where('estado', 'propuesto')->count(),
             'posts_con_error'        => Publicacion::where('estado', 'error')->count(),
@@ -45,11 +48,13 @@ class DashboardController extends Controller
             ->latest()->limit(5)->get();
 
         $pagos_pendientes = Pago::with('proyecto.cliente')
+            ->whereIn('proyecto_id', $proyectoIds)
             ->where('estado', 'pendiente')
             ->orderBy('fecha_vencimiento')
             ->limit(5)->get();
 
         $entregas_pendientes = Entrega::with('proyecto.cliente')
+            ->whereIn('proyecto_id', $proyectoIds)
             ->where('estado', 'enviado')
             ->latest()->limit(5)->get();
 

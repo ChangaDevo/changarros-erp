@@ -4,9 +4,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Models\Traits\BelongsToTenant;
 
 class Cotizacion extends Model
 {
+    use BelongsToTenant;
     protected $table = 'cotizaciones';
 
     protected $fillable = [
