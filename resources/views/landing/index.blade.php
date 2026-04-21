@@ -670,7 +670,7 @@
             {{ $feat }}
           </li>
           @endforeach
-          @foreach(['Múltiples usuarios','Mailing masivo']) as $feat)
+          @foreach(['Múltiples usuarios','Mailing masivo'] as $feat)
           <li style="opacity:.4;">
             <i data-lucide="x" style="width:15px;height:15px;" class="cross"></i>
             {{ $feat }}
@@ -691,7 +691,7 @@
         <div class="pricing-period">/ mes · MXN</div>
         <p class="pricing-desc">Para estudios creativos con equipo. Cada admin gestiona sus propios clientes de forma independiente.</p>
         <ul class="pricing-features">
-          @foreach(['Hasta 5 usuarios admin','Clientes ilimitados','Todo del plan Freelance','Mailing masivo (hasta 5k contactos)','Módulo de Marcas & Branding','Rentabilidad por proyecto','Soporte prioritario']) as $feat)
+          @foreach(['Hasta 5 usuarios admin','Clientes ilimitados','Todo del plan Freelance','Mailing masivo (hasta 5k contactos)','Módulo de Marcas & Branding','Rentabilidad por proyecto','Soporte prioritario'] as $feat)
           <li>
             <i data-lucide="check" style="width:15px;height:15px;" class="check"></i>
             {{ $feat }}
@@ -711,7 +711,7 @@
         <div class="pricing-period">/ mes · MXN</div>
         <p class="pricing-desc">Para agencias con múltiples equipos, alto volumen y necesidades personalizadas.</p>
         <ul class="pricing-features">
-          @foreach(['Usuarios admin ilimitados','Todo del plan Estudio','Mailing sin límite de contactos','Social Media Calendar avanzado','Integración Meta Tokens','Personalización de marca','Instalación y onboarding incluidos']) as $feat)
+          @foreach(['Usuarios admin ilimitados','Todo del plan Estudio','Mailing sin límite de contactos','Social Media Calendar avanzado','Integración Meta Tokens','Personalización de marca','Instalación y onboarding incluidos'] as $feat)
           <li>
             <i data-lucide="check" style="width:15px;height:15px;" class="check"></i>
             {{ $feat }}
